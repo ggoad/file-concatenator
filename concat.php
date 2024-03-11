@@ -3621,6 +3621,25 @@ function ElFetch( target,fetchMessage, file, config, responseType,responseHandle
 	overflow-x:scroll;
 	border:1px solid brown;
 }
+
+form{
+   margin:10px;
+   border:2px solid blue;
+   padding:4px;
+}
+form button{
+   margin-top:10px;
+   margin-bottom:10px;
+}
+form input{
+   margin-top:10px;
+   margin-bottom:10px;
+}
+details{
+   margin:10px;
+   margin-bottom:20px;
+}
+
 </style>
 <script id=''>
 VCR.main= new VC(
