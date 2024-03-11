@@ -19,3 +19,8 @@ It is vulnerable to file-traversal attacks, and likely script-injection attacks.
 DO USE THIS
 
 To pre-calculate a concatonated file to reduce your server requests.
+
+
+INSTALATION
+
+Copy to your php server, visit the page, fill out the form, and submit. That's it!

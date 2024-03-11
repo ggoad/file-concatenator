@@ -39,8 +39,10 @@ if($_POST['dat'] ?? false){
    $conc=join("\n", $conc);
    
    // detect file name
-   $fileName=$dat['fileName'] ?: 'auto_file_concat.txt';
-   file_put_contents($fileName, $conc);
+   $fileName=$dat['fileName'] ?: '';
+   if($fileName){
+  	 file_put_contents($fileName, $conc);
+   }   
 }
 ?>
 <!DOCTYPE html>
@@ -3637,6 +3639,9 @@ function(a){
    
    // forms
    _el.APPEND(a.GET_target(),[
+      _el.CREATE('div','','',{},[
+         "INSTRUCTIONS: Fill out the form and submit! Specify an output file to put the output into a file on your server."
+      ]),	   
       rmfTar=_el.CREATE('div'),
       comTar=_el.CREATE('div'),
 	  
@@ -3648,8 +3653,8 @@ function(a){
 
    
    var rmf=RMFORM(rmfTar, [
-      {type:'singleLine', name:'fileName', labelText:'File Name: '},
-      {type:'dynamicList', name:'list', labelText:'List:'}
+      {type:'singleLine', name:'fileName', labelText:'Output File Name: '},
+      {type:'dynamicList', name:'list', labelText:'Concat Files:', addText:'+Add File'}
    ], "list", {
       collProc:function(c){
 		// set hidden form and submit
