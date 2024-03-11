@@ -3639,6 +3639,9 @@ details{
    margin:10px;
    margin-bottom:20px;
 }
+details button{
+   margin:10px;
+}
 
 </style>
 <script id=''>
