@@ -7,7 +7,7 @@ if($_POST['dat'] ?? false){
    $conc=[];
    $err=[];
    
-   
+   $semiColons=$dat['semiColons'];
    foreach($dat['list'] as $l)
    {
 	   // send a true http request if $l has a protocol
@@ -29,7 +29,9 @@ if($_POST['dat'] ?? false){
 	  
 	  // report failure
       if(!$txt){$txt="/* FAILED */"; $err[]="$l Failed<br>";}
-	  
+      if($semiColons){
+      	$txt.=";";
+      }
 	  // add to output
       $conc[]="/* START $l */";
       $conc[]=$txt;
@@ -3675,8 +3677,9 @@ function(a){
 
    
    var rmf=RMFORM(rmfTar, [
-      {type:'singleLine', name:'fileName', labelText:'Output File Name: '},
-      {type:'dynamicList', name:'list', labelText:'Concat Files:', addText:'+Add File'}
+   	{type:'singleLine', name:'fileName', labelText:'Output File Name: '},
+	{type:'checkbox', name:'semiColons', labelText:'Close Files With Semi Colons'},
+	{type:'dynamicList', name:'list', labelText:'Concat Files:', addText:'+Add File'}
    ], "list", {
       collProc:function(c){
 		// set hidden form and submit
